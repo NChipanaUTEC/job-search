@@ -1,0 +1,25 @@
+table{
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: white;
+}
+
+.pagination{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    width: 100%;
+}
+
+.page-selector{
+    display: flex;
+    flex-direction: row;
+}
+
+.page-switch{
+    display: flex;
+    flex-direction: row;
+}
