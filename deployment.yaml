@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: job-search-deployment
+spec:
+  selector:
+    matchLabels:
+      app: job-search-pod
+  template:
+    metadata:
+      labels:
+        app: job-search-pod
+    spec:
+      containers:
+      - name: job-search-server
+        image: job-search-server:v1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 1234
+      - name: job-search-client
+        image: job-search-client:v1.2
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3000
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: job-search-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: job-search-pod
+  ports:
+  - name: server
+    port: 1233
+    targetPort: 1233
+  - name: client
+    port: 3000
+    targetPort: 3000
