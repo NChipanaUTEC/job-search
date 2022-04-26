@@ -22,7 +22,7 @@ function AddForm() {
             setIsLoading(false);
             return;
         }
-        axios.post("https://localhost:44391/employee", {
+        axios.post("http://localhost:1233/employee", {
             fullName,
             jobTitle,
             jobSkill,

@@ -43,7 +43,7 @@ function Home(){
     )
 
     useEffect(() => {
-        axios.get('https://localhost:44391/employee')
+        axios.get('http://localhost:1233/employee')
         .then(res => {
             setData(res.data);
             setLoading(false);
@@ -57,7 +57,7 @@ function Home(){
         e.preventDefault();
         setFilterInput('');
         setFilterCategory('');
-        axios.get('https://localhost:44391/employee')
+        axios.get('http://localhost:1233/employee')
         .then(res => {
             setData(res.data);
             setLoading(false);
@@ -72,9 +72,9 @@ function Home(){
         if(filterInput === '' || filterCategory === '') return;
         setLoading(true);
         let API = '';
-        if(filterCategory === 'Job Title') API = 'https://localhost:44391/employee/job/' + filterInput;
-        else if(filterCategory === 'Country') API = 'https://localhost:44391/employee/country/' + filterInput;
-        else if(filterCategory === 'Language') API = 'https://localhost:44391/employee/language/' + filterInput;
+        if(filterCategory === 'Job Title') API = 'http://localhost:1233/employee/job/' + filterInput;
+        else if(filterCategory === 'Country') API = 'http://localhost:1233/employee/country/' + filterInput;
+        else if(filterCategory === 'Language') API = 'http://localhost:1233/employee/language/' + filterInput;
         axios.get(API)
         .then(res => {
             setData(res.data);
