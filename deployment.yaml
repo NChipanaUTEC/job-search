@@ -19,7 +19,7 @@ spec:
             memory: "128Mi"
             cpu: "500m"
         ports:
-        - containerPort: 1234
+        - containerPort: 1233
       - name: job-search-client
         image: job-search-client:v1.2
         resources:
